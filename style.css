@@ -12,3 +12,7 @@ footer {
     color: white;
 }
 
+#mis-redes img{
+    filter: invert(1);
+    width: 2em;
+}
