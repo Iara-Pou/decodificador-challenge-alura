@@ -2,3 +2,9 @@ body{
  background-color: #E5E5E5;
  font-family: 'Inter', sans-serif;
 }
+footer {
+    padding: 1em;
+    background-color: #0A3871;
+    color: white;
+}
+
