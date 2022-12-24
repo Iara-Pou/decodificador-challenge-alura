@@ -11,6 +11,11 @@ main {
     justify-content: space-between;
     margin: 2em;
 }
+
+#icono {
+    margin-left: 1.5em;
+}
+
     padding: 1em;
 button:hover {
     background-color: #d6d6d6;
