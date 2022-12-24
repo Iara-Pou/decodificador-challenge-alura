@@ -70,10 +70,10 @@ textarea {
 #resultado {
     background-color: white;
     color: #1d1d1d;
+    width: 30%;
     box-sizing: border-box;
     padding: 2em;
     border-radius: 20px;
-    width: 30%;
     height: 33em;
     overflow-y: auto;  
 }
@@ -108,4 +108,38 @@ footer {
 
 .oculto {
     display: none;
+}
+
+@media screen and (max-width: 800px){
+    main{
+    display: block;
+    }
+
+    #ingreso-texto, #resultado{
+        width: 100%;
+        margin: 3em auto;
+    }
+
+    #no-encontrado img{
+        display: none;
+    }
+
+    footer{
+        padding: 2em;
+        display: block;
+    }
+
+    #mis-redes{
+        margin-top: 1em;
+    }
+
+}
+
+@media screen and (max-width: 450px){
+    #ingreso-texto div{
+    display: block;
+    }
+    #ingreso-texto button {
+        width: 100%;
+    }
 }
