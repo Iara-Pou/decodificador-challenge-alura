@@ -2,12 +2,20 @@
     font-family: 'Inter', sans-serif !important;
 }
 
-body{
- background-color: #E5E5E5;
- font-family: 'Inter', sans-serif;
+body {
+    background-color: #E5E5E5;
 }
 footer {
     padding: 1em;
+button:hover {
+    background-color: #d6d6d6;
+}
+#ingreso-texto textarea {
+    background-color: transparent;
+}
+#resultado {
+    background-color: white;
+}
     background-color: #0A3871;
     color: white;
 }
