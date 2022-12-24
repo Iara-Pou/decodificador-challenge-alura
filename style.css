@@ -57,6 +57,16 @@ textarea {
     line-height: 150%;
     color: #0A3871;
 }
+
+#ingreso-texto textarea + p {
+    margin-top: 1.8em;
+    font-size: 0.85em;
+}
+
+#ingreso-texto div {
+    display: flex;
+}
+
 #resultado {
     background-color: white;
     width: 30%;
