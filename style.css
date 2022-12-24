@@ -45,6 +45,9 @@ button:active {
 
 #ingreso-texto textarea {
     background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
     width: 100%;
 }
 
