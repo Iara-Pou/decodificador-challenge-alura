@@ -88,6 +88,10 @@ textarea {
     margin: 1em 0;
 }
 
+#no-encontrado img{
+    width: 100%;
+}
+
 footer {
     background-color: #0A3871;
     color: white;
