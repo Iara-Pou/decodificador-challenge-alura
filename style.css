@@ -5,7 +5,12 @@
 body {
     background-color: #E5E5E5;
 }
-footer {
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em;
+}
     padding: 1em;
 button:hover {
     background-color: #d6d6d6;
