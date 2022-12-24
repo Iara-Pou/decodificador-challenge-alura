@@ -96,8 +96,6 @@ footer {
     justify-content: space-between;
 }
 
-#mis-redes img{
-    filter: invert(1);
 #mis-redes img {
     margin-left: 0.5em;
     width: 2em;
