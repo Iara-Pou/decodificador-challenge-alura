@@ -38,8 +38,16 @@ button:active {
     transform: scale(1.01);
 }
 
+#ingreso-texto button {
+    margin-right: 1em;
+    width: 50%;
+}
+
 #ingreso-texto textarea {
     background-color: transparent;
+    width: 100%;
+}
+
 }
 #resultado {
     background-color: white;
