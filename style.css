@@ -51,6 +51,11 @@ button:active {
     width: 100%;
 }
 
+#ingreso-texto textarea::placeholder,
+textarea {
+    font-size: 2rem;
+    line-height: 150%;
+    color: #0A3871;
 }
 #resultado {
     background-color: white;
