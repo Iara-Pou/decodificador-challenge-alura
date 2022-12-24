@@ -16,6 +16,9 @@ main {
     margin-left: 1.5em;
 }
 
+#ingreso-texto {
+    width: 60%;
+}
     padding: 1em;
 button:hover {
     background-color: #d6d6d6;
@@ -25,6 +28,8 @@ button:hover {
 }
 #resultado {
     background-color: white;
+    width: 30%;
+}
 }
     background-color: #0A3871;
     color: white;
