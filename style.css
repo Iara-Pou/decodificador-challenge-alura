@@ -77,7 +77,15 @@ textarea {
     height: 33em;
     overflow-y: auto;  
 }
+    
+#encontrado button {
+    width: 100%;
 }
+
+#no-encontrado h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 0;
 }
     background-color: #0A3871;
     color: white;
