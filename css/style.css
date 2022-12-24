@@ -16,7 +16,7 @@ main {
     margin-left: 1.5em;
 }
 
-#ingreso-texto {
+#area-ingreso-texto {
     width: 60%;
 }
 
@@ -38,12 +38,12 @@ button:active {
     transform: scale(1.01);
 }
 
-#ingreso-texto button {
+#area-ingreso-texto button {
     margin-right: 1em;
     width: 50%;
 }
 
-#ingreso-texto textarea {
+#area-ingreso-texto textarea {
     background-color: transparent;
     border: none;
     outline: none;
@@ -51,19 +51,19 @@ button:active {
     width: 100%;
 }
 
-#ingreso-texto textarea::placeholder,
+#area-ingreso-texto textarea::placeholder,
 textarea {
     font-size: 2rem;
     line-height: 150%;
     color: #0A3871;
 }
 
-#ingreso-texto textarea + p {
+#area-ingreso-texto textarea + p {
     margin-top: 1.8em;
     font-size: 0.85em;
 }
 
-#ingreso-texto div {
+#area-ingreso-texto div {
     display: flex;
 }
 
@@ -115,7 +115,7 @@ footer {
     display: block;
     }
 
-    #ingreso-texto, #resultado{
+    #area-ingreso-texto, #resultado{
         width: 100%;
         margin: 3em auto;
     }
@@ -136,10 +136,10 @@ footer {
 }
 
 @media screen and (max-width: 450px){
-    #ingreso-texto div{
+    #area-ingreso-texto div{
     display: block;
     }
-    #ingreso-texto button {
+    #area-ingreso-texto button {
         width: 100%;
     }
 }
