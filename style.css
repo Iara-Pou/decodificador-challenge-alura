@@ -1,5 +1,5 @@
-.oculto {
-    display: none;
+* {
+    font-family: 'Inter', sans-serif !important;
 }
 
 body{
@@ -14,5 +14,12 @@ footer {
 
 #mis-redes img{
     filter: invert(1);
+#mis-redes img {
+    margin-left: 0.5em;
     width: 2em;
+    filter: invert(1);
+}
+
+.oculto {
+    display: none;
 }
