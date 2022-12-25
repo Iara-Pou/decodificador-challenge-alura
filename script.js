@@ -87,6 +87,14 @@ function verificar(textoIngresado){
         return "";
     }
 }
+
+function verificarEncriptado(textoIngresado){
+    if (!/(ai)|(enter)|(imes)|(ober)|(ufat)/.test(textoIngresado)){
+        return "El mensaje no está encriptado."
+    } 
+    return "";
+}
+
 function mostrarResultado(traduccion){
         //esconder sin resultado
     const $contenedorSinTexto = document.querySelector("#no-encontrado");
