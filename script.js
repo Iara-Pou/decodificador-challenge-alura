@@ -17,7 +17,16 @@ const CODIFICACION = {
     }
 }
 
-$botonEncriptar.onclick = encriptar;
+$botonEncriptar.onclick = manejarEncriptado;
+$botonDesencriptar.onclick = manejarDesencriptado;
+
+function manejarEncriptado(){
+}
+
+function manejarDesencriptado(){
+
+}
+
 
 function encriptar (){
 const textoIngresado = document.querySelector("#textarea-ingreso").value;
