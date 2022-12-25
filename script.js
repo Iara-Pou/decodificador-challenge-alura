@@ -50,6 +50,5 @@ function desencriptarTexto(textoIngresado){
     return textoDesencriptado;
 }
 
-function avisarSiEsVocal (letraComparada){
-    return letraComparada === "a" || letraComparada==="e"|| letraComparada==="i"|| letraComparada==="o"|| letraComparada==="u";
+
 }
