@@ -36,6 +36,13 @@ function manejarDesencriptado(){
 
 }
 
+function mostrarError (textoError){
+    const SIGNO_INFORMACION = "🛈";
+    const error = document.querySelector("#error");
+
+    error.classList.remove("oculto");
+    error.textContent = SIGNO_INFORMACION + textoError;
+}
 
 function encriptar (){
 const textoIngresado = document.querySelector("#textarea-ingreso").value;
