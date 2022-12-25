@@ -1,5 +1,21 @@
 const $botonEncriptar = document.querySelector("#boton-encriptar");
 const $botonDesencriptar = document.querySelector("#boton-desencriptar");
+const CODIFICACION = {
+    VOCAL_A_CODIGO : {
+        "a": "ai",
+        "e": "enter",
+        "i":"imes",
+        "o":"ober",
+        "u": "ufat"
+    },
+    CODIGO_A_VOCAL : {
+        "ai":"a",
+        "enter":"e",
+        "imes":"i",
+        "ober":"o",
+        "ufat": "u"
+    }
+}
 
 $botonEncriptar.onclick = encriptar;
 
