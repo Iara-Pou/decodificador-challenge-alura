@@ -33,6 +33,8 @@ function manejarEncriptado(){
 }
 
 function manejarDesencriptado(){
+    const textoIngresado = document.querySelector("#textarea-ingreso").value;
+    const esExito = verificar(textoIngresado) === "" && verificarEncriptado(textoIngresado) === "";
 
 }
 
