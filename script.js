@@ -36,6 +36,8 @@ function manejarDesencriptado(){
     const textoIngresado = document.querySelector("#textarea-ingreso").value;
     const esExito = verificar(textoIngresado) === "" && verificarEncriptado(textoIngresado) === "";
 
+    if(esExito){
+        mostrarResultado(desencriptarTexto(textoIngresado));
 }
 
 function mostrarError (textoError){
