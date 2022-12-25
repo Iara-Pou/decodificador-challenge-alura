@@ -58,9 +58,6 @@ function mostrarError (textoError){
     error.textContent = SIGNO_INFORMACION + textoError;
 }
 
-function encriptar (){
-const textoIngresado = document.querySelector("#textarea-ingreso").value;
-let textoEncriptado = "";
 function encriptarTexto(textoIngresado) {
     let textoEncriptado = textoIngresado;
 
