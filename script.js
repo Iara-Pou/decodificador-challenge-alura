@@ -25,6 +25,7 @@ function manejarEncriptado(){
     const esExito = verificar(textoIngresado) === "";
     
     if(esExito){
+        mostrarResultado(encriptarTexto(textoIngresado));
     } else {
     }
 }
