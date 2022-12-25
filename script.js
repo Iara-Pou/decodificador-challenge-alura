@@ -21,6 +21,7 @@ $botonEncriptar.onclick = manejarEncriptado;
 $botonDesencriptar.onclick = manejarDesencriptado;
 
 function manejarEncriptado(){
+    const textoIngresado = document.querySelector("#textarea-ingreso").value;
 }
 
 function manejarDesencriptado(){
