@@ -61,4 +61,12 @@ function desencriptarTexto(textoIngresado){
 }
 
 
+function verificar(textoIngresado){
+    if(textoIngresado.trim() === ""){
+        return "El texto debe contener un carácter o más.";
+    } else if(! /^[a-z1-9+-¿?¡!.,]*$/.test(textoIngresado)){
+        return "Solo puedes ingresar letras en minúsculas y sin acentos.";
+    } else {
+        return "";
+    }
 }
