@@ -22,13 +22,32 @@ $botonEncriptar.onclick = encriptar;
 function encriptar (){
 const textoIngresado = document.querySelector("#textarea-ingreso").value;
 let textoEncriptado = "";
+function encriptarTexto(textoIngresado) {
+    let textoEncriptado = textoIngresado;
 
-for(let i = 0; i<textoIngresado.length; i++){
-    //distinguir si es vocal o no
-    const letra = textoIngresado[i];
-    const esVocal = avisarSiEsVocal(letra)
+    vocales = Object.keys(CODIFICACION.VOCAL_A_CODIGO);
+    vocales.forEach(vocal => {
+        if(textoIngresado.includes(vocal)){
+            const encriptado = CODIFICACION.VOCAL_A_CODIGO[vocal];
+            textoEncriptado= textoEncriptado.replaceAll(vocal, encriptado);
+        }
+    });
+
+    return textoEncriptado;
 }
 
+function desencriptarTexto(textoIngresado){
+    let textoDesencriptado = textoIngresado;
+
+    codigosVocales = Object.keys(CODIFICACION.CODIGO_A_VOCAL);
+    codigosVocales.forEach(codigo => {
+        if(textoDesencriptado.includes(codigo)){
+            const traduccion = CODIFICACION.CODIGO_A_VOCAL[codigo];
+            textoDesencriptado= textoDesencriptado.replaceAll(codigo, traduccion);
+        }
+    });
+
+    return textoDesencriptado;
 }
 
 function avisarSiEsVocal (letraComparada){
