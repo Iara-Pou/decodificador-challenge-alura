@@ -76,3 +76,16 @@ function verificar(textoIngresado){
         return "";
     }
 }
+function mostrarResultado(traduccion){
+        //esconder sin resultado
+    const $contenedorSinTexto = document.querySelector("#no-encontrado");
+    $contenedorSinTexto.classList.add("oculto")
+        //mostrar resultado
+    const $contenedorTexto = document.querySelector("#encontrado");
+    $contenedorTexto.classList.remove("oculto");
+        //rellenar el p
+    const textoFinal = document.querySelector("#texto-final");
+    textoFinal.textContent = traduccion;
+}
+
+
