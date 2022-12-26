@@ -25,6 +25,7 @@ function manejarEncriptado(){
     const esExito = verificar(textoIngresado) === "";
     
     if(esExito){
+        reiniciarTextarea();
         esconderErrores();
         mostrarResultado(encriptarTexto(textoIngresado));
     } else {
@@ -38,6 +39,7 @@ function manejarDesencriptado(){
     const esExito = verificar(textoIngresado) === "" && verificarEncriptado(textoIngresado) === "";
 
     if(esExito){
+        reiniciarTextarea();
         esconderErrores();
         mostrarResultado(desencriptarTexto(textoIngresado));
         //aprovecho que un String completo sea truthy:
@@ -55,6 +57,12 @@ function manejarDesencriptado(){
 function esconderErrores(){
     const error = document.querySelector("#error");
     error.classList.add("oculto");
+}
+
+function reiniciarTextarea(){
+    const textoIngresado = document.querySelector("#textarea-ingreso");
+    textoIngresado.value="";
+    textoIngresado.focus();
 }
 
 function mostrarError (textoError){
@@ -97,7 +105,7 @@ function desencriptarTexto(textoIngresado){
 function verificar(textoIngresado){
     if(textoIngresado.trim() === ""){
         return "El texto debe contener un carácter o más.";
-    } else if(! /^[a-z1-9+-¿?¡!.,]*$/.test(textoIngresado)){
+    } else if(! /^[a-z1-9+-¿?¡!.,\n]*$/.test(textoIngresado)){
         return "Solo puedes ingresar letras en minúsculas y sin acentos.";
     } else {
         return "";
