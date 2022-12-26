@@ -25,6 +25,7 @@ function manejarEncriptado(){
     const esExito = verificar(textoIngresado) === "";
     
     if(esExito){
+        esconderErrores();
         mostrarResultado(encriptarTexto(textoIngresado));
     } else {
         const errorInput = verificar(textoIngresado)
@@ -37,6 +38,7 @@ function manejarDesencriptado(){
     const esExito = verificar(textoIngresado) === "" && verificarEncriptado(textoIngresado) === "";
 
     if(esExito){
+        esconderErrores();
         mostrarResultado(desencriptarTexto(textoIngresado));
         //aprovecho que un String completo sea truthy:
         // Boolean("El mensaje no está encriptado.") --> truthy, entonces entra en esa condición
@@ -48,6 +50,11 @@ function manejarDesencriptado(){
         mostrarError(error); 
     }
 
+}
+
+function esconderErrores(){
+    const error = document.querySelector("#error");
+    error.classList.add("oculto");
 }
 
 function mostrarError (textoError){
