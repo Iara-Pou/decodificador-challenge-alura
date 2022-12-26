@@ -76,9 +76,10 @@ textarea {
     padding: 2em;
     border-radius: 20px;
     height: 33em;
-    overflow-y: auto;  
+    overflow-wrap: break-word;
+    overflow-y: auto;
 }
-    
+
 #encontrado button {
     width: 100%;
 }
