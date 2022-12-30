@@ -6,9 +6,16 @@ body {
     background-color: #E5E5E5;
 }
 
+body main, body footer div{
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 main {
     display: flex;
     justify-content: space-between;
+    gap:5%;
     margin: 2em;
 }
 
@@ -75,7 +82,7 @@ textarea {
     box-sizing: border-box;
     padding: 2em;
     border-radius: 20px;
-    height: 33em;
+    height: 30em;
     overflow-wrap: break-word;
     overflow-y: auto;
 }
@@ -97,7 +104,7 @@ textarea {
 footer {
     background-color: #0A3871;
     color: white;
-    padding: 6px 2em;
+    padding: 0.5em 2em;
     display: flex;
     justify-content: space-between;
 }
@@ -115,6 +122,7 @@ footer {
 @media screen and (max-width: 800px){
     main{
     display: block;
+    padding: 0 2em;
     }
 
     #area-ingreso-texto, #resultado{
