@@ -74,15 +74,18 @@ function mostrarError (textoError){
 }
 
 function encriptarTexto(textoIngresado) {
-    let textoEncriptado = textoIngresado;
+    let textoEncriptado = "";
 
-    vocales = Object.keys(CODIFICACION.VOCAL_A_CODIGO);
-    vocales.forEach(vocal => {
-        if(textoIngresado.includes(vocal)){
-            const encriptado = CODIFICACION.VOCAL_A_CODIGO[vocal];
-            textoEncriptado= textoEncriptado.replaceAll(vocal, encriptado);
+    for(let indiceLetra = 0; indiceLetra< textoIngresado.length; indiceLetra++){
+        const letra = textoIngresado[indiceLetra];
+        if(avisarSiEsVocal(letra)){
+            const codigo = CODIFICACION.VOCAL_A_CODIGO[letra];
+            textoEncriptado += codigo;
+        } else {
+            textoEncriptado += letra;
         }
-    });
+
+    }
 
     return textoEncriptado;
 }
