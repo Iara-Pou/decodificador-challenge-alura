@@ -11,6 +11,7 @@ function manejar(tarea) {
         reiniciarTextarea();
         esconderErrores();
         manejarResultado(tarea(textoIngresado));
+
     } else {
         const errorInput = verificar(textoIngresado)
         mostrarError(errorInput);
