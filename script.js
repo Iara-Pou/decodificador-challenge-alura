@@ -1,18 +1,3 @@
-const $botonEncriptar = document.querySelector("#boton-encriptar");
-const $botonDesencriptar = document.querySelector("#boton-desencriptar");
-const $botonCopiar = document.querySelector("#boton-copiar");
-const VOCAL_A_CODIGO = {
-    "a": "ai",
-    "e": "enter",
-    "i": "imes",
-    "o": "ober",
-    "u": "ufat"
-}
-
-$botonEncriptar.onclick = manejarEncriptado;
-$botonDesencriptar.onclick = manejarDesencriptado;
-$botonCopiar.onclick = copiarTexto;
-
 function copiarTexto() {
     let texto = document.querySelector('#texto-final').textContent;
     navigator.clipboard.writeText(texto);
@@ -152,3 +137,18 @@ function mostrarResultado(resultado) {
     //mostrar contenedor
     document.querySelector("#encontrado").classList.remove("oculto");
 }
+
+const $botonEncriptar = document.querySelector("#boton-encriptar");
+const $botonDesencriptar = document.querySelector("#boton-desencriptar");
+const $botonCopiar = document.querySelector("#boton-copiar");
+const VOCAL_A_CODIGO = {
+    "a": "ai",
+    "e": "enter",
+    "i": "imes",
+    "o": "ober",
+    "u": "ufat"
+}
+
+$botonEncriptar.onclick = manejarEncriptado;
+$botonDesencriptar.onclick = manejarDesencriptado;
+$botonCopiar.onclick = copiarTexto;
