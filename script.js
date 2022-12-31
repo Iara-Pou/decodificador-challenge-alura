@@ -13,7 +13,7 @@ $botonEncriptar.onclick = manejarEncriptado;
 $botonDesencriptar.onclick = manejarDesencriptado;
 $botonCopiar.onclick = copiarTexto;
 
-function copiarTexto(){
+function copiarTexto() {
     let texto = document.querySelector('#texto-final').textContent;
     navigator.clipboard.writeText(texto);
 }
@@ -69,10 +69,10 @@ function mostrarError(textoError) {
 function encriptarTexto(textoIngresado) {
     let textoEncriptado = "";
 
-    for(let indiceLetra = 0; indiceLetra< textoIngresado.length; indiceLetra++){
+    for (let indiceLetra = 0; indiceLetra < textoIngresado.length; indiceLetra++) {
         const letra = textoIngresado[indiceLetra];
         const esVocal = avisarSiEsVocal(letra);
-        if(esVocal){
+        if (esVocal) {
             const codigoVocal = VOCAL_A_CODIGO[letra];
             textoEncriptado += codigoVocal;
         } else {
@@ -81,7 +81,7 @@ function encriptarTexto(textoIngresado) {
     }
 
     return textoEncriptado;
-    }
+}
 
 function avisarSiEsVocal(letra) {
     return letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u";
@@ -96,22 +96,22 @@ function desencriptarTexto(textoIngresado) {
         const letraEmpiezaEncriptado = verificarEncriptado(indiceLetra, textoIngresado);
 
         if (esVocal && letraEmpiezaEncriptado) {
-        const vocal = letra;
-        const codigoVocal = VOCAL_A_CODIGO[vocal];
+            const vocal = letra;
+            const codigoVocal = VOCAL_A_CODIGO[vocal];
 
-        /*al indiceLetra que itera el textoIngresado, le sumo la longitud del códigoVocal, para saltear la parte encriptada y no desencriptar más veces que las necesarias al texto original. 
-        (Le resta uno al total del length del código, porque en cada iteración el for ya suma uno al índiceLetra)
-            
-            Por ejemplo de "enter" sale "e", solo tiene que contar la primera e, la segunda no. 
-            (e)nter -> e
-            (e)nt(e)r -> ee
-        */
+            /*al indiceLetra que itera el textoIngresado, le sumo la longitud del códigoVocal, para saltear la parte encriptada y no desencriptar más veces que las necesarias al texto original. 
+            (Le resta uno al total del length del código, porque en cada iteración el for ya suma uno al índiceLetra)
+                
+                Por ejemplo de "enter" sale "e", solo tiene que contar la primera e, la segunda no. 
+                (e)nter -> e
+                (e)nt(e)r -> ee
+            */
 
-        indiceLetra += codigoVocal.length - 1;
+            indiceLetra += codigoVocal.length - 1;
 
-        } 
+        }
 
-        textoDesencriptado+= letra;
+        textoDesencriptado += letra;
 
     }
 
@@ -136,24 +136,19 @@ function verificarEncriptado(indiceLetra, textoIngresado) {
     return ENCRIPTADO_ORIGINAL === encriptadoTexto;
 }
 
-//manejarResultado(traduccion)
-//escondermensajeandjsa
-//mostrarresultado(traduccion)
-
-//cambiar como dice antes
 function manejarResultado(traduccion) {
     esconderMensajeDefault();
     mostrarResultado(traduccion);
 }
 
-function esconderMensajeDefault(){
+function esconderMensajeDefault() {
     const $contenedorSinTexto = document.querySelector("#no-encontrado");
     $contenedorSinTexto.classList.add("oculto");
 }
 
-function mostrarResultado(resultado){
-        const textoResultado = document.querySelector("#texto-final");
-        textoResultado.textContent = resultado;
-        //mostrar contenedor
-        document.querySelector("#encontrado").classList.remove("oculto");
+function mostrarResultado(resultado) {
+    const textoResultado = document.querySelector("#texto-final");
+    textoResultado.textContent = resultado;
+    //mostrar contenedor
+    document.querySelector("#encontrado").classList.remove("oculto");
 }
