@@ -64,9 +64,8 @@ function desencriptarTexto(textoIngresado) {
     for (let indiceLetra = 0; indiceLetra < textoIngresado.length; indiceLetra++) {
         const letra = textoIngresado[indiceLetra];
         const esVocal = avisarSiEsVocal(letra);
-        const letraEmpiezaEncriptado = verificarEncriptado(indiceLetra, textoIngresado);
 
-        if (esVocal && letraEmpiezaEncriptado) {
+        if (esVocal && verificarEncriptado(indiceLetra, textoIngresado)) {
             const vocal = letra;
             const codigoVocal = VOCAL_A_CODIGO[vocal];
 
