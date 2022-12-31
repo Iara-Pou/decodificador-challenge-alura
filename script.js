@@ -78,11 +78,9 @@ function encriptarTexto(textoIngresado) {
         } else {
             textoEncriptado += letra;
         }
-
     }
 
     return textoEncriptado;
-
     }
 
 function avisarSiEsVocal(letra) {
@@ -94,12 +92,14 @@ function desencriptarTexto(textoIngresado) {
 
     for (let indiceLetra = 0; indiceLetra < textoIngresado.length; indiceLetra++) {
         const letra = textoIngresado[indiceLetra];
+        const esVocal = avisarSiEsVocal(letra);
+        const letraEmpiezaEncriptado = verificarEncriptado(indiceLetra, textoIngresado);
 
-        if (avisarSiEsVocal(letra) && verificarEncriptado(indiceLetra, textoIngresado)) {
+        if (esVocal && letraEmpiezaEncriptado) {
         const vocal = letra;
         const codigoVocal = VOCAL_A_CODIGO[vocal];
 
-        /*al indiceLetra que itera el textoIngresado, le sumo la longitud del códigoVocal, para saltear la parte encriptada y no desencriptar más veces que las necesarias. 
+        /*al indiceLetra que itera el textoIngresado, le sumo la longitud del códigoVocal, para saltear la parte encriptada y no desencriptar más veces que las necesarias al texto original. 
         (Le resta uno al total del length del código, porque en cada iteración el for ya suma uno al índiceLetra)
             
             Por ejemplo de "enter" sale "e", solo tiene que contar la primera e, la segunda no. 
