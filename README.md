@@ -7,7 +7,8 @@ Sigue la siguiente lógica para encriptar:
 - Si lee "i", lo encripta como "imes"
 - Si lee "o", lo encripta como "ober"
 - Si lee "u", lo encripta como "ufat"
-- 
+
 y la lógica inversa para desencriptar.
+link: https://iara-pou.github.io/decodificador-challenge-alura/
 
 #challengeonecodificador4
