@@ -11,25 +11,25 @@ const VOCAL_A_CODIGO = {
 $botonEncriptar.onclick = manejarEncriptado;
 $botonDesencriptar.onclick = manejarDesencriptado;
 
-function manejarEncriptado(){
+function manejarEncriptado() {
     const textoIngresado = document.querySelector("#textarea-ingreso").value;
     const esExito = verificar(textoIngresado) === "";
-    
-    if(esExito){
+
+    if (esExito) {
         reiniciarTextarea();
         esconderErrores();
         mostrarResultado(encriptarTexto(textoIngresado));
     } else {
         const errorInput = verificar(textoIngresado)
-        mostrarError(errorInput); 
+        mostrarError(errorInput);
     }
 }
 
-function manejarDesencriptado(){
+function manejarDesencriptado() {
     const textoIngresado = document.querySelector("#textarea-ingreso").value;
     const esExito = verificar(textoIngresado) === "" && verificarEncriptado(textoIngresado) === "";
 
-    if(esExito){
+    if (esExito) {
         reiniciarTextarea();
         esconderErrores();
         mostrarResultado(desencriptarTexto(textoIngresado));
@@ -37,26 +37,26 @@ function manejarDesencriptado(){
         // Boolean("El mensaje no está encriptado.") --> truthy, entonces entra en esa condición
     } else if (verificar(textoIngresado)) {
         const error = verificar(textoIngresado)
-        mostrarError(error);  
-    } else if((verificarEncriptado(textoIngresado))){
+        mostrarError(error);
+    } else if ((verificarEncriptado(textoIngresado))) {
         const error = verificarEncriptado(textoIngresado);
-        mostrarError(error); 
+        mostrarError(error);
     }
 
 }
 
-function esconderErrores(){
+function esconderErrores() {
     const error = document.querySelector("#error");
     error.classList.add("oculto");
 }
 
-function reiniciarTextarea(){
+function reiniciarTextarea() {
     const textoIngresado = document.querySelector("#textarea-ingreso");
-    textoIngresado.value="";
+    textoIngresado.value = "";
     textoIngresado.focus();
 }
 
-function mostrarError (textoError){
+function mostrarError(textoError) {
     const SIGNO_INFORMACION = "🛈";
     const error = document.querySelector("#error");
 
@@ -70,7 +70,7 @@ function encriptarTexto(textoIngresado) {
     for(let indiceLetra = 0; indiceLetra< textoIngresado.length; indiceLetra++){
         const letra = textoIngresado[indiceLetra];
         if(avisarSiEsVocal(letra)){
-            const codigo = CODIFICACION.VOCAL_A_CODIGO[letra];
+            const codigo = VOCAL_A_CODIGO[letra];
             textoEncriptado += codigo;
         } else {
             textoEncriptado += letra;
@@ -79,6 +79,8 @@ function encriptarTexto(textoIngresado) {
     }
 
     return textoEncriptado;
+
+    }
 
 function avisarSiEsVocal(letra) {
     return letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u";
@@ -113,32 +115,31 @@ function desencriptarTexto(textoIngresado) {
     return textoDesencriptado;
 }
 
-
-function verificar(textoIngresado){
-    if(textoIngresado.trim() === ""){
+function verificar(textoIngresado) {
+    if (textoIngresado.trim() === "") {
         return "El texto debe contener un carácter o más.";
-    } else if(! /^[a-z1-9+-¿?¡!.,\n]*$/.test(textoIngresado)){
-        return "Solo puedes ingresar letras en minúsculas y sin acentos.";
+    } else if (! /^[a-z1-9¿?¡!.,\n ]*$/.test(textoIngresado)) {
+        return "Puedes ingresar letras en minúsculas y sin acentos, espacios, saltos de líneas, números y carácteres especiales ('¿', '?', '¡', '!', '.', ',').";
     } else {
         return "";
     }
 }
 
-function verificarEncriptado(textoIngresado){
-    if (!/(ai)|(enter)|(imes)|(ober)|(ufat)/.test(textoIngresado)){
+function verificarEncriptado(textoIngresado) {
+    if (!/(ai)|(enter)|(imes)|(ober)|(ufat)/.test(textoIngresado)) {
         return "El mensaje no está encriptado."
-    } 
+    }
     return "";
 }
 
-function mostrarResultado(traduccion){
-        //esconder sin resultado
+function mostrarResultado(traduccion) {
+    //esconder sin resultado
     const $contenedorSinTexto = document.querySelector("#no-encontrado");
     $contenedorSinTexto.classList.add("oculto")
-        //mostrar resultado
+    //mostrar resultado
     const $contenedorTexto = document.querySelector("#encontrado");
     $contenedorTexto.classList.remove("oculto");
-        //rellenar el p
+    //rellenar el p
     const textoFinal = document.querySelector("#texto-final");
     textoFinal.textContent = traduccion;
 }
