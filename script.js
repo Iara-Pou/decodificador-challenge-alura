@@ -25,7 +25,7 @@ function manejarEncriptado() {
     if (esExito) {
         reiniciarTextarea();
         esconderErrores();
-        mostrarResultado(encriptarTexto(textoIngresado));
+        manejarResultado(encriptarTexto(textoIngresado));
     } else {
         const errorInput = verificar(textoIngresado)
         mostrarError(errorInput);
@@ -39,7 +39,7 @@ function manejarDesencriptado() {
     if (esExito) {
         reiniciarTextarea();
         esconderErrores();
-        mostrarResultado(desencriptarTexto(textoIngresado));
+        manejarResultado(desencriptarTexto(textoIngresado));
     } else {
         const error = verificarEncriptado(textoIngresado);
         mostrarError(error);
@@ -136,17 +136,24 @@ function verificarEncriptado(indiceLetra, textoIngresado) {
     return ENCRIPTADO_ORIGINAL === encriptadoTexto;
 }
 
-function mostrarResultado(traduccion) {
-    //esconder sin resultado
-    const $contenedorSinTexto = document.querySelector("#no-encontrado");
-    $contenedorSinTexto.classList.add("oculto")
-    //mostrar resultado
-    const $contenedorTexto = document.querySelector("#encontrado");
-    $contenedorTexto.classList.remove("oculto");
-    //rellenar resultado
-    const textoFinal = document.querySelector("#texto-final");
-    textoFinal.textContent = traduccion;
+//manejarResultado(traduccion)
+//escondermensajeandjsa
+//mostrarresultado(traduccion)
+
+//cambiar como dice antes
+function manejarResultado(traduccion) {
+    esconderMensajeDefault();
+    mostrarResultado(traduccion);
 }
 
+function esconderMensajeDefault(){
+    const $contenedorSinTexto = document.querySelector("#no-encontrado");
+    $contenedorSinTexto.classList.add("oculto");
+}
 
-
+function mostrarResultado(resultado){
+        const textoResultado = document.querySelector("#texto-final");
+        textoResultado.textContent = resultado;
+        //mostrar contenedor
+        document.querySelector("#encontrado").classList.remove("oculto");
+}
