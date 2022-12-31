@@ -134,6 +134,6 @@ const VOCAL_A_CODIGO = {
     "u": "ufat"
 }
 
-$botonEncriptar.onclick = manejarEncriptado;
-$botonDesencriptar.onclick = manejarDesencriptado;
+$botonEncriptar.onclick = () => {manejar(encriptarTexto)};
+$botonDesencriptar.onclick = () => {manejar(desencriptarTexto)};
 $botonCopiar.onclick = copiarTexto;
