@@ -3,33 +3,19 @@ function copiarTexto() {
     navigator.clipboard.writeText(texto);
 }
 
-function manejarEncriptado() {
+function manejar(tarea) {
     const textoIngresado = document.querySelector("#textarea-ingreso").value;
     const esExito = verificar(textoIngresado) === "";
 
     if (esExito) {
         reiniciarTextarea();
         esconderErrores();
-        manejarResultado(encriptarTexto(textoIngresado));
+        manejarResultado(tarea(textoIngresado));
+
     } else {
         const errorInput = verificar(textoIngresado)
         mostrarError(errorInput);
     }
-}
-
-function manejarDesencriptado() {
-    const textoIngresado = document.querySelector("#textarea-ingreso").value;
-    const esExito = verificar(textoIngresado) === "";
-
-    if (esExito) {
-        reiniciarTextarea();
-        esconderErrores();
-        manejarResultado(desencriptarTexto(textoIngresado));
-    } else {
-        const error = verificarEncriptado(textoIngresado);
-        mostrarError(error);
-    }
-
 }
 
 function esconderErrores() {
@@ -149,6 +135,6 @@ const VOCAL_A_CODIGO = {
     "u": "ufat"
 }
 
-$botonEncriptar.onclick = manejarEncriptado;
-$botonDesencriptar.onclick = manejarDesencriptado;
+$botonEncriptar.onclick = () => {manejar(encriptarTexto)};
+$botonDesencriptar.onclick = () => {manejar(desencriptarTexto)};
 $botonCopiar.onclick = copiarTexto;
