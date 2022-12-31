@@ -34,7 +34,7 @@ function manejarEncriptado() {
 
 function manejarDesencriptado() {
     const textoIngresado = document.querySelector("#textarea-ingreso").value;
-    const esExito = verificar(textoIngresado) === "" && verificarEncriptado(textoIngresado) === "";
+    const esExito = verificar(textoIngresado) === "";
 
     if (esExito) {
         reiniciarTextarea();
@@ -99,7 +99,7 @@ function desencriptarTexto(textoIngresado) {
     for (let indiceLetra = 0; indiceLetra < textoIngresado.length; indiceLetra++) {
         const letra = textoIngresado[indiceLetra];
 
-        if (avisarSiEsVocal(letra)) {
+        if (avisarSiEsVocal(letra) && verificarEncriptado(indiceLetra, textoIngresado)) {
         const vocal = letra;
         const codigoVocal = VOCAL_A_CODIGO[vocal];
 
@@ -109,7 +109,6 @@ function desencriptarTexto(textoIngresado) {
             Por ejemplo de "enter" sale "e", solo tiene que contar la primera e, la segunda no. 
             (e)nter -> e
             (e)nt(e)r -> ee
-
         */
 
         indiceLetra += codigoVocal.length - 1;
@@ -133,11 +132,12 @@ function verificar(textoIngresado) {
     }
 }
 
-function verificarEncriptado(textoIngresado) {
-    if (!/(ai)|(enter)|(imes)|(ober)|(ufat)/.test(textoIngresado)) {
-        return "El mensaje no está encriptado."
-    }
-    return "";
+function verificarEncriptado(indiceLetra, textoIngresado) {
+    const ENCRIPTADO_ORIGINAL = VOCAL_A_CODIGO[textoIngresado[indiceLetra]];
+    //sumo el índice letra porque con el indice, avanza donde tengo que comparar los dos resultados
+    const encriptadoTexto = textoIngresado.slice(indiceLetra, indiceLetra + ENCRIPTADO_ORIGINAL.length);
+
+    return ENCRIPTADO_ORIGINAL === encriptadoTexto;
 }
 
 function mostrarResultado(traduccion) {
