@@ -40,12 +40,7 @@ function manejarDesencriptado() {
         reiniciarTextarea();
         esconderErrores();
         mostrarResultado(desencriptarTexto(textoIngresado));
-        /*aprovecho que un String completo sea truthy:
-        Boolean("El mensaje no está encriptado.") --> truthy, entonces entra en esa condición */ 
-    } else if (verificar(textoIngresado)) {
-        const error = verificar(textoIngresado)
-        mostrarError(error);
-    } else if ((verificarEncriptado(textoIngresado))) {
+    } else {
         const error = verificarEncriptado(textoIngresado);
         mostrarError(error);
     }
