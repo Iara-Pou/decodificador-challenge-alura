@@ -7,6 +7,7 @@ Sigue la siguiente lógica para encriptar:
 - Si lee "i", lo encripta como "imes"
 - Si lee "o", lo encripta como "ober"
 - Si lee "u", lo encripta como "ufat"
+- 
 y la lógica inversa para desencriptar.
 
 #challengeonecodificador4
