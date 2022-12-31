@@ -40,8 +40,8 @@ function manejarDesencriptado() {
         reiniciarTextarea();
         esconderErrores();
         mostrarResultado(desencriptarTexto(textoIngresado));
-        //aprovecho que un String completo sea truthy:
-        // Boolean("El mensaje no está encriptado.") --> truthy, entonces entra en esa condición
+        /*aprovecho que un String completo sea truthy:
+        Boolean("El mensaje no está encriptado.") --> truthy, entonces entra en esa condición */ 
     } else if (verificar(textoIngresado)) {
         const error = verificar(textoIngresado)
         mostrarError(error);
@@ -103,14 +103,15 @@ function desencriptarTexto(textoIngresado) {
         const vocal = letra;
         const codigoVocal = VOCAL_A_CODIGO[vocal];
 
-        /*al indiceLetra que itera, le sumo la longitud del códigoVocal en el textoIngresado, para saltear la parte encriptada y no desencriptar más veces que las necesarias. Le resta uno al total del length del código, porque en cada iteración el for ya suma uno al índice por default.
+        /*al indiceLetra que itera el textoIngresado, le sumo la longitud del códigoVocal, para saltear la parte encriptada y no desencriptar más veces que las necesarias. 
+        (Le resta uno al total del length del código, porque en cada iteración el for ya suma uno al índiceLetra)
             
             Por ejemplo de "enter" sale "e", solo tiene que contar la primera e, la segunda no. 
             (e)nter -> e
             (e)nt(e)r -> ee
 
         */
-       
+
         indiceLetra += codigoVocal.length - 1;
 
         } 
