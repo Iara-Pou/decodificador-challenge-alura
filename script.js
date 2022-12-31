@@ -131,7 +131,7 @@ function verificar(textoIngresado) {
 function verificarEncriptado(indiceLetra, textoIngresado) {
     const ENCRIPTADO_ORIGINAL = VOCAL_A_CODIGO[textoIngresado[indiceLetra]];
     const encriptadoTexto = textoIngresado.slice(indiceLetra, indiceLetra + ENCRIPTADO_ORIGINAL.length);
-    //sumo el índiceLetra a la longitud porque con el indice, avanza donde tengo que comparar los dos resultados
+    //sumo el índiceLetra a la longitud porque tengo que comparar los dos resultados desde el índice, que varía según la iteración.
 
     return ENCRIPTADO_ORIGINAL === encriptadoTexto;
 }
