@@ -60,10 +60,10 @@ function reiniciarTextarea() {
 
 function mostrarError(textoError) {
     const SIGNO_INFORMACION = "🛈";
-    const error = document.querySelector("#error");
+    const $error = document.querySelector("#error");
 
-    error.classList.remove("oculto");
-    error.textContent = SIGNO_INFORMACION + textoError;
+    $error.classList.remove("oculto");
+    $error.textContent = SIGNO_INFORMACION + textoError;
 }
 
 function encriptarTexto(textoIngresado) {
@@ -71,9 +71,10 @@ function encriptarTexto(textoIngresado) {
 
     for(let indiceLetra = 0; indiceLetra< textoIngresado.length; indiceLetra++){
         const letra = textoIngresado[indiceLetra];
-        if(avisarSiEsVocal(letra)){
-            const codigo = VOCAL_A_CODIGO[letra];
-            textoEncriptado += codigo;
+        const esVocal = avisarSiEsVocal(letra);
+        if(esVocal){
+            const codigoVocal = VOCAL_A_CODIGO[letra];
+            textoEncriptado += codigoVocal;
         } else {
             textoEncriptado += letra;
         }
