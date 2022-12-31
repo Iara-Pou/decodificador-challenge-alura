@@ -91,7 +91,7 @@ function desencriptarTexto(textoIngresado) {
 function verificar(textoIngresado) {
     if (textoIngresado.trim() === "") {
         return "El texto debe contener un carácter o más.";
-    } else if (! /^[a-z1-9¿?¡!.,\n ]*$/.test(textoIngresado)) {
+    } else if (! /^[a-z1-9¿?¡!.,\nñ ]*$/.test(textoIngresado)) {
         return "Puedes ingresar letras en minúsculas y sin acentos, espacios, saltos de líneas, números y carácteres especiales ('¿', '?', '¡', '!', '.', ',').";
     } else {
         return "";
