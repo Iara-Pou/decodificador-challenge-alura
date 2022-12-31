@@ -71,8 +71,7 @@ function encriptarTexto(textoIngresado) {
     }
 
     return textoEncriptado;
-
-}
+    }
 
 function avisarSiEsVocal(letra) {
     return letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u";
