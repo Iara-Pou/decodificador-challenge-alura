@@ -34,7 +34,7 @@ function manejarEncriptado() {
 
 function manejarDesencriptado() {
     const textoIngresado = document.querySelector("#textarea-ingreso").value;
-    const esExito = verificar(textoIngresado) === "";
+    const esExito = verificar(textoIngresado) === "" && verificarEncriptado(textoIngresado) === "";
 
     if (esExito) {
         reiniciarTextarea();
@@ -133,13 +133,22 @@ function verificar(textoIngresado) {
     }
 }
 
+function verificarEncriptado(textoIngresado) {
+    if (!/(ai)|(enter)|(imes)|(ober)|(ufat)/.test(textoIngresado)) {
+        return "El mensaje no está encriptado."
+    }
+    return "";
+}
+
 function mostrarResultado(traduccion) {
     //esconder sin resultado
     const $contenedorSinTexto = document.querySelector("#no-encontrado");
     $contenedorSinTexto.classList.add("oculto")
     //mostrar resultado
+
     const $contenedorTexto = document.querySelector("#encontrado");
     $contenedorTexto.classList.remove("oculto");
+
     //rellenar resultado
     const textoFinal = document.querySelector("#texto-final");
     textoFinal.textContent = traduccion;
