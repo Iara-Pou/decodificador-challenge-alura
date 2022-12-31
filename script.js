@@ -79,18 +79,36 @@ function encriptarTexto(textoIngresado) {
     }
 
     return textoEncriptado;
+
+function avisarSiEsVocal(letra) {
+    return letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u";
 }
 
-function desencriptarTexto(textoIngresado){
-    let textoDesencriptado = textoIngresado;
+function desencriptarTexto(textoIngresado) {
+    let textoDesencriptado = "";
 
-    codigosVocales = Object.keys(CODIFICACION.CODIGO_A_VOCAL);
-    codigosVocales.forEach(codigo => {
-        if(textoDesencriptado.includes(codigo)){
-            const traduccion = CODIFICACION.CODIGO_A_VOCAL[codigo];
-            textoDesencriptado= textoDesencriptado.replaceAll(codigo, traduccion);
-        }
-    });
+    for (let indiceLetra = 0; indiceLetra < textoIngresado.length; indiceLetra++) {
+        const letra = textoIngresado[indiceLetra];
+
+        if (avisarSiEsVocal(letra)) {
+        const vocal = letra;
+        const codigoVocal = VOCAL_A_CODIGO[vocal];
+
+        /*al indiceLetra que itera, le sumo la longitud del códigoVocal en el textoIngresado, para saltear la parte encriptada y no desencriptar más veces que las necesarias. Le resta uno al total del length del código, porque en cada iteración el for ya suma uno al índice por default.
+            
+            Por ejemplo de "enter" sale "e", solo tiene que contar la primera e, la segunda no. 
+            (e)nter -> e
+            (e)nt(e)r -> ee
+
+        */
+       
+        indiceLetra += codigoVocal.length - 1;
+
+        } 
+
+        textoDesencriptado+= letra;
+
+    }
 
     return textoDesencriptado;
 }
