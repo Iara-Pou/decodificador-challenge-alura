@@ -134,8 +134,8 @@ function verificar(textoIngresado) {
 
 function verificarEncriptado(indiceLetra, textoIngresado) {
     const ENCRIPTADO_ORIGINAL = VOCAL_A_CODIGO[textoIngresado[indiceLetra]];
-    //sumo el índice letra porque con el indice, avanza donde tengo que comparar los dos resultados
     const encriptadoTexto = textoIngresado.slice(indiceLetra, indiceLetra + ENCRIPTADO_ORIGINAL.length);
+    //sumo el índiceLetra a la longitud porque con el indice, avanza donde tengo que comparar los dos resultados
 
     return ENCRIPTADO_ORIGINAL === encriptadoTexto;
 }
@@ -145,10 +145,8 @@ function mostrarResultado(traduccion) {
     const $contenedorSinTexto = document.querySelector("#no-encontrado");
     $contenedorSinTexto.classList.add("oculto")
     //mostrar resultado
-
     const $contenedorTexto = document.querySelector("#encontrado");
     $contenedorTexto.classList.remove("oculto");
-
     //rellenar resultado
     const textoFinal = document.querySelector("#texto-final");
     textoFinal.textContent = traduccion;
